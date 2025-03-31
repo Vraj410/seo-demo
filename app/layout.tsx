@@ -1,8 +1,19 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist } from "next/font/google";
 import "./globals.css";
 
-const geist = Geist({ subsets: ["latin"] });
+// Optimize font loading
+const geist = Geist({
+  subsets: ["latin"],
+  display: "swap", // Prevent font blocking
+});
+
+// Separate viewport configuration
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#ffffff",
+};
 
 export const metadata: Metadata = {
   title: "Premium Shoe Store - Quality Footwear for Every Occasion",
