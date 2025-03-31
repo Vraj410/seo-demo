@@ -1,66 +1,106 @@
 // app/page.js
 export default function Home() {
-  // Force error status to fail HTTP status test
-  throw new Error("Force 500 error");
-
   return (
-    // Remove container and use table for layout (bad practice)
-    <table>
-      <tr>
-        <td>
-          {/* Remove title element and use non-semantic markup */}
-          <div style={{ fontSize: '40px' }}>Welcome</div>
-          <div style={{ fontSize: '40px' }}>to my website</div>
+    <main className="container mx-auto px-4 py-8">
+      {/* Semantic header with proper heading hierarchy */}
+      <header>
+        <h1 className="text-4xl font-bold mb-6">
+          Welcome to Premium Shoe Store
+        </h1>
+      </header>
 
-          {/* Extreme keyword stuffing with invisible text */}
-          <div style={{ display: 'none' }}>
-            shoes buy shoes cheap shoes best shoes shoes online buy now shoes 
-            cheap shoes discount shoes shoe store shoes near me shoes shoes shoes
-            shoes buy shoes cheap shoes best shoes shoes online buy now shoes 
-          </div>
-
-          {/* Links with no context and javascript: protocol (very bad for SEO) */}
-          <a href="data:text/html,<script>alert('bad')</script>">.</a>
-          <a href="tel:">...</a>
-          <a href="javascript:void(0)">#</a>
-          <a href="mailto:">&nbsp;</a>
-
-          {/* Images with broken URLs and no alt text */}
-          <img src="data:," />
-          <img src="javascript:alert('bad')" />
-
-          {/* Tiny text with keyword stuffing */}
-          <p style={{ fontSize: '0px', color: 'transparent' }}>
-            hidden keywords hidden text hidden content
-          </p>
-
-          {/* Duplicate content with slight variations */}
-          <p>Welcome to our amazing shoe store with the best shoes.</p>
-          <p>Welcome to our fantastic shoe store with the greatest shoes.</p>
-          <p>Welcome to our wonderful shoe store with the finest shoes.</p>
-
-          {/* Iframe with blocked content (bad for SEO) */}
-          <iframe 
-            src="about:blank" 
-            sandbox="allow-same-origin" 
-            style={{ display: 'none' }}
+      {/* Main content section with semantic HTML */}
+      <section className="featured-products mb-12">
+        <h2 className="text-2xl font-semibold mb-4">Featured Collection</h2>
+        
+        {/* Properly optimized images with alt text */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <img 
+            src="/running-shoes.jpg" 
+            alt="Premium running shoes with enhanced cushioning"
+            width={400}
+            height={300}
+            loading="lazy"
           />
+          <img 
+            src="/casual-shoes.jpg" 
+            alt="Comfortable casual shoes for everyday wear"
+            width={400}
+            height={300}
+            loading="lazy"
+          />
+          <img 
+            src="/formal-shoes.jpeg" 
+            alt="Elegant formal shoes for special occasions"
+            width={400}
+            height={300}
+            loading="lazy"
+          />
+        </div>
+      </section>
 
-          {/* Meta refresh (bad practice) */}
-          <meta httpEquiv="refresh" content="30" />
+      {/* Descriptive links with clear context */}
+      <nav className="categories mb-12">
+        <h2 className="text-2xl font-semibold mb-4">Shop by Category</h2>
+        <ul className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <li>
+            <a href="/running-shoes" className="hover:underline">
+              Browse Running Shoes Collection
+            </a>
+          </li>
+          <li>
+            <a href="/casual-shoes" className="hover:underline">
+              Explore Casual Footwear
+            </a>
+          </li>
+          <li>
+            <a href="/formal-shoes" className="hover:underline">
+              View Formal Shoes Selection
+            </a>
+          </li>
+          <li>
+            <a href="/sports-shoes" className="hover:underline">
+              Discover Sports Shoes Range
+            </a>
+          </li>
+        </ul>
+      </nav>
 
-          {/* Blocking external resources */}
-          <script src="huge-file.js" />
-          <link rel="stylesheet" href="massive-styles.css" />
+      {/* Rich, meaningful content */}
+      <article className="about mb-12">
+        <h2 className="text-2xl font-semibold mb-4">About Our Collection</h2>
+        <p className="mb-4">
+          Our carefully curated shoe collection combines style, comfort, and durability. 
+          Each pair is selected for its quality craftsmanship and modern design.
+        </p>
+        <p>
+          Whether you are looking for athletic performance, casual comfort, or formal elegance, 
+          our extensive range ensures you&apos;ll find the perfect fit for every occasion.
+        </p>
+      </article>
 
-          {/* Invalid markup structure */}
-          <div>
-            <p>
-              <div>Invalid nesting</div>
-            </p>
-          </div>
-        </td>
-      </tr>
-    </table>
+      {/* Footer with additional navigation */}
+      <footer className="border-t pt-8">
+        <nav aria-label="Footer Navigation">
+          <ul className="flex flex-wrap gap-6">
+            <li>
+              <a href="/size-guide" className="hover:underline">
+                Size Guide
+              </a>
+            </li>
+            <li>
+              <a href="/shipping-info" className="hover:underline">
+                Shipping Information
+              </a>
+            </li>
+            <li>
+              <a href="/contact" className="hover:underline">
+                Contact Support
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </footer>
+    </main>
   );
 }
